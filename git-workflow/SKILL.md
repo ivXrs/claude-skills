@@ -13,6 +13,9 @@ description: git and github workflow rules: branching, conventional commit messa
 - stage files by name; do not use `git add -A` or `git add .`.
 - never force-push, rewrite pushed history, or skip hooks.
 
+## language
+- everything written to git or github is in english, whatever language the conversation is in: commit messages, pull request titles and descriptions, and squash commit titles and bodies.
+
 ## publishing: one proposal, one approval
 1. run the validation commands the repo's CLAUDE.md requires. stop and report if any fails.
 2. in a single message, propose everything at once:
