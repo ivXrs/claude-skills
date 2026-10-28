@@ -28,7 +28,8 @@ description: git and github workflow rules: branching, conventional commit messa
 4. after approval, run sequentially without asking again: `git switch -c`, `git add <files>`, `git commit`, `git push -u`, `gh pr create`. stop and report on the first failure.
 
 ## merge
-- once the pr is created and the work is done, proactively propose the merge without waiting to be asked: in a single message, give the squash commit title (same convention as commits) and body, built from the pr's commits and description.
+- once the pr is created and the work is done, proactively propose the merge without waiting to be asked: in a single message, give the squash commit title (same convention as commits, ending with the pr number as ` (#<n>)`) and body, built from the pr's commits and description.
+- the `(#<n>)` suffix is mandatory, so every commit on `main` links back to its pr. `gh pr merge --subject` replaces github's default title, which is what adds the suffix, so always write it explicitly.
 - the user only approves or asks for changes; if they ask for changes, apply them and re-propose.
-- run `gh pr merge --squash --delete-branch` only after the user approves, so the remote branch is deleted with the merge.
+- run `gh pr merge --squash --delete-branch --subject "<title> (#<n>)" --body "<body>"` only after the user approves, so the remote branch is deleted with the merge.
 - then update the local repo with `git switch main && git pull --prune`.
