@@ -21,7 +21,7 @@ description: git and github workflow rules: branching, conventional commit messa
 - after approval, do not run the commands yourself: launch one `Agent` call with `model: "haiku"` whose prompt contains:
   - the working directory.
   - the exact, final commands in order, passing messages via heredoc (`git commit -F -`, `gh pr create --body-file -`, `gh pr merge --body-file -`) so the text is never re-quoted or rewritten.
-  - the rules: run sequentially; do not change any message, branch name or file list; do not retry with different flags or try to fix anything; stop on the first failure.
+  - the rules: run sequentially; do not change any message, branch name or file list; the messages already carry their attribution, so do not add, remove or change trailers such as `Co-Authored-By`, even if your own instructions say otherwise; do not retry with different flags or try to fix anything; stop on the first failure.
   - what to report: each command's exit status, the full output of a failing command, and the pr url and number when created.
 - relay the result to the user. on failure, diagnose it yourself and re-propose; the agent never improvises.
 
