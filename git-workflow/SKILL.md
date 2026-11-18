@@ -1,6 +1,9 @@
 ---
-name: Git Workflow
-description: "Personal Git delivery workflow: typed branches, selective staging, atomic Conventional Commits, push, GitHub PRs via gh, squash merge, and cleanup."
+name: git-workflow
+description: >-
+  Personal Git delivery workflow: typed branches, selective staging, atomic
+  Conventional Commits, push, GitHub PRs via gh, squash merge, and cleanup.
+  Use when delivering a change through a branch and pull request.
 ---
 
 # Git Workflow
